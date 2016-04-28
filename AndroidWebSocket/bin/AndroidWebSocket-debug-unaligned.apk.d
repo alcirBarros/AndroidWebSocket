@@ -1,3 +1,3 @@
-/home/alci/NetBeansProjects/AndroidWebSocket/bin/AndroidWebSocket-debug-unaligned.apk : \
-/home/alci/NetBeansProjects/AndroidWebSocket/bin/AndroidWebSocket.ap_ \
-/home/alci/NetBeansProjects/AndroidWebSocket/bin/classes.dex \
+/home/alci/Java/Projetos/Git/AndroidWebSocket/AndroidWebSocket/bin/AndroidWebSocket-debug-unaligned.apk : \
+/home/alci/Java/Projetos/Git/AndroidWebSocket/AndroidWebSocket/bin/AndroidWebSocket.ap_ \
+/home/alci/Java/Projetos/Git/AndroidWebSocket/AndroidWebSocket/bin/classes.dex \

@@ -55,15 +55,14 @@ public class MainActivity extends Activity {
 
         mSendMessage.setOnClickListener(new Button.OnClickListener() {
             public void onClick(View v) {
-                
+
                 try {
                     String toString = mMessage.getText().toString();
-                    
+
                     JSONObject jsonObject = new JSONObject();
                     jsonObject.put("user", "usuarioAndroid");
                     jsonObject.put("message", toString);
-                    
-                    
+
                     mConnection.sendTextMessage(jsonObject.toString());
                 } catch (JSONException ex) {
                     Logger.getLogger(MainActivity.class.getName()).log(Level.SEVERE, null, ex);
@@ -73,7 +72,7 @@ public class MainActivity extends Activity {
     }
 
     private void loadPrefs() {
-        mHostname.setText(mSettings.getString("hostname", ""));
+        mHostname.setText(mSettings.getString("hostname", "127.0.0.1"));
         mPort.setText(mSettings.getString("port", "9000"));
     }
 
@@ -113,9 +112,12 @@ public class MainActivity extends Activity {
     }
 
     private void start() {
-        //final String wsuri = "ws://" + mHostname.getText() + ":" + mPort.getText();
+        
+        //final String wsuri = "ws://" + mHostname.getText();
+        
+        final String wsuri = "ws://" + mHostname.getText() + ":" + mPort.getText();
 
-        final String wsuri = "ws://10.0.2.2:8080/chat/echo";
+        //final String wsuri = "ws://10.0.2.2:8080/chat/echo";
 
         mStatusline.setText("Status: Connecting to " + wsuri + " ..");
         setButtonDisconnect();
@@ -156,6 +158,14 @@ public class MainActivity extends Activity {
             });
         } catch (WebSocketException e) {
             Log.d(TAG, e.toString());
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (mConnection.isConnected()) {
+            mConnection.disconnect();
         }
     }
 }
