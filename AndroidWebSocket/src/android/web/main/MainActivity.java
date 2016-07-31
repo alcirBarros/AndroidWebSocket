@@ -72,8 +72,8 @@ public class MainActivity extends Activity {
     }
 
     private void loadPrefs() {
-        mHostname.setText(mSettings.getString("hostname", "127.0.0.1"));
-        mPort.setText(mSettings.getString("port", "9000"));
+        mHostname.setText(mSettings.getString("hostname", "ws://192.168.1.38:8080/WebSocketTest/echo"));
+       // mPort.setText(mSettings.getString("port", "9000"));
     }
 
     private void alert(String message) {
@@ -113,11 +113,13 @@ public class MainActivity extends Activity {
 
     private void start() {
         
+        final String wsuri = mHostname.getText().toString();
+        
         //final String wsuri = "ws://" + mHostname.getText();
         
-        final String wsuri = "ws://" + mHostname.getText() + ":" + mPort.getText();
+        //final String wsuri = "ws://" + mHostname.getText() + ":" + mPort.getText();
 
-        //final String wsuri = "ws://10.0.2.2:8080/chat/echo";
+        //final String wsuri = "ws://192.168.1.38:8080/WebSocketTest/echo";
 
         mStatusline.setText("Status: Connecting to " + wsuri + " ..");
         setButtonDisconnect();
