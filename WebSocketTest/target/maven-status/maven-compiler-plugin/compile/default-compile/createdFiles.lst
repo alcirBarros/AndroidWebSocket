@@ -1,0 +1,5 @@
+org/exemplo/esp8266/websocket/DeviceSessionHandler.class
+org/exemplo/chat/websocket/WebSocketDemo.class
+org/exemplo/chat/websocket/MinhaMensagem.class
+org/exemplo/esp8266/websocket/DeviceWebSocketServer.class
+org/exemplo/esp8266/model/Device.class
